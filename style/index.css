@@ -1,0 +1,523 @@
+/* ======================= EECS 493 Assignment 3 Starter Code ======================= */
+
+/* Main Containers */
+body,
+button {
+  font-family: VT323;
+}
+
+button {
+  font-size: xx-large;
+}
+
+.outer-container {
+  height: 720px;
+  width: 1280px;
+  background: #eee;
+  border: 5px solid gainsboro;
+}
+
+.game-window {
+  height: 720px;
+  width: 1280px;
+  float: left;
+  position: relative;
+}
+
+/* Game Section */
+#actual-game {
+  height: 720px;
+  width: 1280px;
+  background-color: white;
+  z-index: 10;
+  right: 0px;
+  top: 0px;
+}
+
+.asteroidSection {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.curAsteroid {
+  position: absolute;
+  height: 42px;
+  width: 42px;
+  z-index: 9;
+  right: 0px;
+  top: 0px;
+}
+
+.curAsteroid img {
+  position: relative;
+  z-index: 10;
+  height: 80px;
+  left: -17px;
+  top: -15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.shield {
+  position: absolute;
+  z-index: 10;
+  height: 80px;
+  left: -17px;
+  top: -15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.portal {
+  position: absolute;
+  z-index: 10;
+  height: 80px;
+  left: -17px;
+  top: -15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  height: 720px;
+  width: 1280px;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  height: 100px;
+  background-color: darkslateblue;
+  border-bottom: 6px groove;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+
+}
+
+.settings-window {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+
+  height: 690px;
+  width: 600px;
+
+  background-color: darkslateblue;
+  border: 6px groove;
+  font-size: 100px;
+  color: white;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  font-size: 65px;
+  font-weight: bold;
+
+}
+
+#difficulty-title { 
+  width: 100%;
+}
+
+.difficulty-selection-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+
+.difficulty-selection-buttons button {
+
+  background-color: purple;
+  width: 180px;
+  height: 100px;
+  color: white;
+}
+
+
+.difficulty-selection-buttons button:active {
+  background-color: rgb(94, 2, 94);
+}
+
+
+.close-settings-button {
+  background-color: purple;
+  width: 180px;
+  height: 100px;
+  color: white;
+}
+
+.close-settings-button:active {
+  background-color: rgb(94, 2, 94);
+}
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+
+.slider {
+  -webkit-appearance: none;
+  width: 600px;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+
+.volume-value {
+  font-weight: normal;
+}
+
+.header-asteroid-left {
+  width: auto;
+  height: inherit;
+  position: absolute;
+  left: 0;
+}
+
+.header-asteroid-right {
+  width: auto;
+  height: inherit;
+  position: absolute;
+  right: 0;
+}
+
+.main-menu-buttons {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.settings-button {
+  width: 200px;
+  height: 100px;
+  background-color: rgb(72, 61, 139);
+  color: white;
+  /* transition: background-color 0.1s ease; */
+}
+
+.settings-button:active {
+  background-color: rgb(39, 29, 101);
+}
+
+
+.play-button {
+  margin-bottom: 50px;
+  width: 200px;
+  height: 100px;
+  background-color: darkslateblue;
+  color: white;
+}
+
+.play-button:active {
+  background-color: rgb(39, 29, 101);
+}
+
+.tutorial-bold {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.tutorial-italic {
+  font-style: italic;
+  font-size: 50px;
+}
+
+.tutorial-window {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3;
+  position: absolute;
+  background-color: gainsboro;
+  font-size: 50px;
+}
+
+.tutorial-img-container {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#tutorial-title {
+  font-size: 75px;
+}
+
+#tutorial-shield-img {
+  width: 100px;
+  height: auto;
+}
+
+#tutorial-portal-img {
+  width: 100px;
+  height: auto;
+}
+#tutorial-asteroid-img {
+  width: 100px;
+  height: auto;
+}
+
+.start-game-button {
+  width: 200px;
+  height: 75px;
+}
+
+/* Assignment 3 css*/
+.game-overlay-container{
+  z-index: 15;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+
+.scoreboard-container{
+  right: 7%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 50px;
+  line-height: 1;
+}
+.debug-panel{
+  left: 5%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 50px;
+  line-height: 1;
+}
+
+.debug-value{
+  font-size: 40px;
+  color: darkslateblue;
+}
+
+
+.scoreboard-value{
+  font-size: 40px;
+  color: darkslateblue;
+}
+
+.get-ready-central-container{
+  position: absolute;
+  height: 100%;
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.get-ready-central-column{
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.get-ready-label{
+  position: relative;
+  height: 100px;
+  font-size: 75px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+.get-ready-tooltip{
+  font-size: 40px;
+  color: black;
+}
+
+.player-img{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.pause-button-img{
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: auto;
+}
+
+.game-over-window{
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 200px;
+  background-color: darkslateblue;
+
+}
+.pause-window{
+  z-index: 15;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400;
+  height: 500px;
+  background-color: gainsboro;
+}
+
+.pause-img{
+  height: 150px;
+  width: auto;
+  opacity: 1;
+}
+
+.resume-button{
+  width: 50%;
+  height: 60px;
+}
+
+.restart-exit-container{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.exit-button{
+  width: 33.3%;
+  height: 60px;
+}
+.restart-button{
+  width: 66.6%;
+  height: 60px;
+}
+
+.score-value{
+  font-size: 30px;
+  color: white;
+}
+
+
+.start-over-button{
+    width: 150px;
+    height: 50px;
+}
+
+.game-over-title{
+  font-size: 30px;
+  color: white;
+
+}
+.pause-title{
+  font-size: 60px;
+  color: black;
+}
+
+.restart-confirmation-window{
+  z-index: 15;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 200px;
+  background-color: gainsboro;
+}
+
+.restart-confirmation-buttons-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.restart-confirmation-title{
+  text-align: center;
+  font-size: 40px;
+  color: black;
+}
+
+.restart-button-choice{
+  height: 50px;
+  width: 100px;
+}
+
+.pause-overlay{
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  align-items: center;
+  justify-content: center;
+}

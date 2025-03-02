@@ -1,0 +1,148 @@
+<!-- ====================== EECS 493 Assignment 3 Starter Code ====================== -->
+<html>
+
+<head>
+  <title>Asteroids</title>
+  <!-- JS -->
+  <script src='scripts/jquery.min.js'></script>
+  <script src='scripts/page.js'></script>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class='outer-container'>
+    <div class='game-window'>
+      <!-- ================ ASSIGNMENT 2 CODE GOES HERE ================ -->
+          <!-- Main Menu -->
+          <div id="main-menu" > 
+
+            <img class="background-img" src="src/frontpage_background.jpg"> </img>
+  
+            <div class="header">
+              <span class="header-title">Asteroids</span>
+              <img class="header-asteroid-left" src="src/asteroid.png"></img>
+              <img class="header-asteroid-right" src="src/asteroid.png"></img>
+            </div>
+  
+            <div class="main-menu-buttons">
+              <button class="play-button">Play Game!</button>
+              <button class="settings-button">Settings</button>
+            </div>
+            
+          </div>
+          
+            <!-- Settings -->
+          <div class="settings-window">
+            <div id="settings-title">Settings</div>
+            <div id="volume-title">
+              Volume: 
+              <span id="volume-label" class="volume-value"></span> 
+              <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="volume-slider">
+              </div>
+            </div>
+            <div id="difficulty-title">Difficulty
+              <div class="difficulty-selection-buttons">
+                <button class="difficulty-button" id="difficulty-button-easy">Easy</button>
+                <button class="difficulty-button" id="difficulty-button-normal">Normal</button>
+                <button class="difficulty-button" id="difficulty-button-hard">Hard</button>
+              </div>
+            </div>
+            <button class="close-settings-button">Close</button>
+          </div>
+    
+            <!-- Tutorial -->
+            <div class="tutorial-window">
+              <div id="tutorial-title">How to play</div>
+              <div><span class="tutorial-bold">Avoid</span> asteroids!</div>
+              <div class="tutorial-img-container"><img id="tutorial-asteroid-img" src="./src/asteroid.png"></img></div>
+  
+              <div>
+                <span class="tutorial-bold">Collect</span> <span class="tutorial-italic">shields</span>!
+                <span class="tutorial-bold">Travel</span> through <span class="tutorial-italic">portals</span> to the next level!
+              </div>
+  
+              <div class="tutorial-img-container">
+                <img id="tutorial-shield-img" src="./src/shield.gif"></img>
+                <img id="tutorial-portal-img" src="./src/port.gif"></img>
+              </div>
+  
+              <div><span class="tutorial-bold">Gain</span> as many <span class="tutorial-italic">points</span> as possible!</div>
+              <button class="start-game-button">Start</button>
+            </div>
+  
+      <!-- =================== ASSIGNMENT 2 CODE END =================== -->
+
+      <!-- Actual Game -->
+      <div id="actual-game">
+        <div class="pause-overlay">Restarting...</div>
+        <!-- Get Ready -->
+        <div class="get-ready-screen">
+          <img class="pause-button-img" src="./src/pause.png"></img>
+          <div class="game-overlay-container">
+            <div class="debug-panel">
+              <div class="debug-player-coords">
+                <!-- <div>X: <span class="debug-value" id="debug-player-coords-x">-1</span></div>
+                <div>Y: <span class="debug-value" id="debug-player-coords-y">-1</span></div> -->
+              </div>
+            </div> 
+            <div class="get-ready-central-container">
+              <div class="get-ready-central-column">
+                <div class="get-ready-label">Get Ready!</div>
+                <img class="arrowkeys-img" src="./src/arrowkeys.png"></img>
+                <div class="get-ready-tooltip">Use arrow keys to move.</div>
+              </div>
+            </div>
+              <div class="scoreboard-container">
+                <div>SCORE</div>
+                <div class="scoreboard-value" id="scoreboard-score-value">0</div>
+                <div>DANGER</div>
+                <div class="scoreboard-value" id="scoreboard-danger-value">0</div>
+                <div>LEVEL</div>
+                <div class="scoreboard-value" id="scoreboard-level-value">0</div>
+              </div>
+          </div>
+        </div>
+        <!-- Asteroids -->
+        <div class="asteroidSection">
+          <img class="player-img" src="./src/player/player.gif"></img>
+        </div>
+        <!-- Score Panel -->
+
+      </div>
+
+      <!-- Gameover -->
+        <div class="game-over-window">
+          <div class="game-over-title">GAME OVER!</div>
+          <div class="game-over-title">YOU HAVE TO FIX YOUR SPACESHIP!</div>
+          <div class="score-value"></div>
+          <button class="start-over-button">Start Over</button>
+        </div>
+
+        <!-- Pause Screen -->
+        <div class="pause-window">
+          <div class="pause-title">Game Paused</div>
+          <img class="pause-img" src="./src/pause-rocket.gif"></img>
+          <button class="resume-button">Resume</button>
+          <span class="restart-exit-container">
+            <button class="restart-button">Restart</button>
+            <button class="exit-button">Exit</button>
+          </span>
+        </div>
+
+        <!-- Restart Confirmation -->
+        <div class="restart-confirmation-window">
+          <div class="restart-confirmation-title">Are you sure you want to restart?</div>
+          <span class="restart-confirmation-buttons-container">
+            <button class="restart-button-choice" id="restart-yes">Yes</button>
+            <button class="restart-button-choice" id="restart-no">No</button>
+          </span>
+        </div>
+
+    </div> <!-- end game-window -->
+  </div> <!-- end outer-container -->
+</body>
+
+</html>
